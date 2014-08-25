@@ -33,7 +33,11 @@ angular
       })
       .when('/cart',{
          templateUrl: 'views/cart.html',
-         controller: 'MainCtrl'
+         controller: 'CartCtrl'
+      })
+      .when('/order',{
+            templateUrl: 'views/order.html',
+            controller: 'OrderCtrl'
       })
       .otherwise({
         redirectTo: '/'

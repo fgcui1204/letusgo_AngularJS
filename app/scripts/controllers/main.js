@@ -23,5 +23,8 @@ angular.module('ngLetusgoApp')
     $scope.homePage=function(){
         $location.path('/homePage');
     }
+    $scope.order=function(){
+        $location.path('/order');
+    }
 
   });
