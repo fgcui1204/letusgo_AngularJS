@@ -9,11 +9,11 @@ angular.module('ngLetusgoApp')
         $scope.$parent.totalCount=getTotalCount();
         $scope.totalMoney = getTotalMoney();
         $scope.changeCount = function(item){
-            for(var i=0;i<cartItem.length;i++){
-               if(cartItem[i].Product.p_name==item.Product.p_name){
-                   cartItem[i].count=item.count;
-                 }
-            }
+            _.forEach(cartItem,function(cart_item){
+                if(cart_item.Product.p_name==item.Product.p_name){
+                    cart_item.count=item.count;
+                }
+            });
             localStorage.setItem("cartProduct",JSON.stringify(cartItem));
             localStorage.setItem('totalCount',JSON.stringify(getTotalCount()));
             $scope.totalMoney = getTotalMoney();
@@ -32,9 +32,6 @@ function getTotalMoney(){
         _.forEach(cartItem,function(item){
             totalMoney+=item.Product.p_price*item.count;
         });
-//       for (var i = 0; i < cartItem.length; i++) {
-//        totalMoney+=cartItem.Product.p_price*cartItem.count;
-//        }
     }
 
     return totalMoney;

@@ -27,14 +27,13 @@ angular.module('ngLetusgoApp')
     });
 function isExistItem(product,cart_data) {
     var item;
-    for (var i = 0; i < cart_data.length; i++) {
-        if (product.p_name == cart_data[i].Product.p_name) {
-            item = cart_data[i];
-            break;
+    _.forEach(cart_data,function(cartdata){
+        if (product.p_name == cartdata.Product.p_name) {
+            item = cartdata;
         } else {
             item=false;
         }
-    }
+    });
     return item;
 }
 function getTotalCount(){
@@ -43,9 +42,9 @@ function getTotalCount(){
     if(items===null){
         totalCount=0;
     }else{
-        for(var i=0;i<items.length;i++){
-            totalCount+=items[i].count;
-        }
+        _.forEach(items,function(item){
+            totalCount+=item.count
+        });
     }
     return totalCount;
 }
