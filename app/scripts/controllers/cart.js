@@ -29,9 +29,12 @@ function getTotalMoney(){
     if(cartItem == null){
         totalMoney = 0;
     }else{
-        for (var i = 0; i < cartItem.length; i++) {
-            totalMoney+=cartItem[i].Product.p_price*cartItem[i].count;
-        }
+        _.forEach(cartItem,function(item){
+            totalMoney+=item.Product.p_price*item.count;
+        });
+//       for (var i = 0; i < cartItem.length; i++) {
+//        totalMoney+=cartItem.Product.p_price*cartItem.count;
+//        }
     }
 
     return totalMoney;
