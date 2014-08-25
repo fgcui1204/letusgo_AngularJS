@@ -26,5 +26,5 @@ angular.module('ngLetusgoApp')
     $scope.order=function(){
         $location.path('/order');
     }
-
+    $scope.totalCount=getTotalCount();
   });
