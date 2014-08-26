@@ -9,6 +9,5 @@ function loadAllProduct() {
         new Product('衣服', 'NIKE运动鞋', '1000', '双')
     ];
 }
-var allProduct=JSON.stringify(loadAllProduct());
-localStorage.setItem('allProduct',allProduct);
+localStorage.setItem('allProduct',JSON.stringify(loadAllProduct()));
 localStorage.setItem('totalCount',JSON.stringify(getTotalCount()));

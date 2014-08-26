@@ -2,8 +2,8 @@
  * Created by fgcui on 14-8-25.
  */
 angular.module('ngLetusgoApp')
-    .controller('OrderCtrl', function ($scope,$location) {
-        $scope.orderItems = JSON.parse(localStorage.getItem("cartProduct"));
+    .controller('OrderCtrl', function ($scope,$location,getFromLocal) {
+        $scope.orderItems = getFromLocal.data("cartProduct");
         $scope.$parent.totalCount=getTotalCount();
         $scope.totalMoney = getTotalMoney();
         $scope.remove = function(){
