@@ -6,11 +6,11 @@ function Product(p_sort, p_name, p_price, p_unit) {
 }
 
 angular.module('ngLetusgoApp')
-    .controller('ProCtrl', function ($scope,getFromLocal) {
-        $scope.products = getFromLocal.data("allProduct");
+    .controller('ProCtrl', function ($scope,fromLocal) {
+        $scope.products = fromLocal.getData("allProduct");
         $scope.$parent.totalCount = getTotalCount();
         $scope.addToCart = function (productItem) {
-            var cart_data = getFromLocal.data("cartProduct");
+            var cart_data = fromLocal.getData("cartProduct");
             if (cart_data === null) {
                 cart_data = [];
             }
@@ -20,8 +20,8 @@ angular.module('ngLetusgoApp')
             } else {
                 cart_data.push(new cartItem(productItem, 1));
             }
-            localStorage.setItem("cartProduct", JSON.stringify(cart_data));
-            localStorage.setItem('totalCount', JSON.stringify(getTotalCount()));
+            fromLocal.setData("cartProduct",cart_data);
+            fromLocal.setData("totalCount",getTotalCount());
             $scope.$parent.totalCount = getTotalCount();
         }
     });

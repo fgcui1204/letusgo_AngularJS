@@ -3,8 +3,8 @@ function cartItem(Product, count) {
     this.count = count;
 }
 angular.module('ngLetusgoApp')
-    .controller('CartCtrl', function ($scope,getFromLocal) {
-        var cartItem = getFromLocal.data("cartProduct");
+    .controller('CartCtrl', function ($scope,fromLocal) {
+        var cartItem = fromLocal.getData("cartProduct");
         $scope.cartItems = cartItem;
         $scope.$parent.totalCount = getTotalCount();
         $scope.totalMoney = getTotalMoney();
@@ -14,13 +14,15 @@ angular.module('ngLetusgoApp')
                     cart_item.count = item.count;
                 }
             });
-            localStorage.setItem("cartProduct", JSON.stringify(cartItem));
-            localStorage.setItem('totalCount', JSON.stringify(getTotalCount()));
+            var cart_Item1 = _.filter(cartItem,function(item){
+                return item.count != 0;
+            });
+            fromLocal.setData("cartProduct",cart_Item1);
+            $scope.cartItems = cart_Item1;
+            fromLocal.setData("totalCount",getTotalCount());
             $scope.totalMoney = getTotalMoney();
             $scope.$parent.totalCount = getTotalCount();
         }
-
-
     });
 function getTotalMoney() {
     var cartItem = JSON.parse(localStorage.getItem("cartProduct"));
