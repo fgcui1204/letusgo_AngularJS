@@ -40,6 +40,6 @@ angular
             controller: 'OrderCtrl'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/homePage'
       });
   });
