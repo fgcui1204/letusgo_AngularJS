@@ -14,10 +14,9 @@ app.service('cartService', function (fromLocal,productService) {
             });
         }
         return totalMoney;
-    }
+    };
     this.changeCount = function (item){
         var cartItem = fromLocal.getData("cartProduct");
-        console.log(cartItem[0].$$hashKey+"#333333333333333");
         _.forEach(cartItem, function (cart_item) {
             if (cart_item.p_name == item.p_name) {
                 cart_item.count = item.count;
@@ -26,10 +25,8 @@ app.service('cartService', function (fromLocal,productService) {
         var cart_Item1 = _.filter(cartItem,function(item){
             return item.count != 0;
         });
-
         fromLocal.setData("cartProduct",cart_Item1);
-
-        fromLocal.setData("totalCount",productService.getTotalCount());
+         fromLocal.setData("totalCount",productService.getTotalCount());
     }
 
 });

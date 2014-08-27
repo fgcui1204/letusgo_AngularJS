@@ -1,7 +1,3 @@
-//function cartItem(Product, count) {
-//    this.Product = Product;
-//    this.count = count;
-//}
 angular.module('ngLetusgoApp')
     .controller('CartCtrl', function ($scope,fromLocal,cartService,productService) {
         $scope.cartItems = fromLocal.getData("cartProduct");

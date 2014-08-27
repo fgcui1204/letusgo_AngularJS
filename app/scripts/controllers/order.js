@@ -2,15 +2,14 @@
  * Created by fgcui on 14-8-25.
  */
 angular.module('ngLetusgoApp')
-    .controller('OrderCtrl', function ($scope,$location,fromLocal,cartService,productService) {
+    .controller('OrderCtrl', function ($scope,fromLocal,cartService,productService,orderService) {
         $scope.orderItems = fromLocal.getData("cartProduct");
         $scope.$parent.totalCount=productService.getTotalCount();
         $scope.totalMoney = cartService.getTotalMoney();
         $scope.remove = function(){
-            localStorage.removeItem("cartProduct");
-            fromLocal.setData('totalCount',0);
+            orderService.remove();
             $scope.$parent.totalCount=productService.getTotalCount();
-            $location.path('/homePage').replace();
+
         }
     });
 
