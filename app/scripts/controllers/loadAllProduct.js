@@ -7,21 +7,11 @@ function Product(p_sort, p_name, p_price, p_unit) {
 
 angular.module('ngLetusgoApp')
     .controller('ProCtrl', function ($scope,fromLocal,productService) {
+        productService.setToLocal();
         $scope.products = fromLocal.getData("allProduct");
         $scope.$parent.totalCount = productService.getTotalCount();
-        $scope.addToCart = function (productItem) {
-            var cart_data = fromLocal.getData("cartProduct");
-            if (cart_data === null) {
-                cart_data = [];
-            }
-            var cart_item = productService.isExistItem(productItem, cart_data);
-            if (cart_item) {
-                cart_item.count++;
-            } else {
-                cart_data.push(new cartItem(productItem, 1));
-            }
-            fromLocal.setData("cartProduct",cart_data);
-            fromLocal.setData("totalCount",productService.getTotalCount());
+        $scope.addToCart = function(product){
+            productService.addToCart(product);
             $scope.$parent.totalCount = productService.getTotalCount();
-        }
+        };
     });

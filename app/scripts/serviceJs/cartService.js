@@ -14,7 +14,6 @@ app.service('cartService', function (fromLocal) {
             });
         }
         return totalMoney;
-
     }
 
 });

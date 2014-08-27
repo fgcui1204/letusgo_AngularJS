@@ -18,9 +18,14 @@ app.service('productService', function (fromLocal) {
             {p_sort:'服装',p_name:'NIKE鞋',p_price:'300',p_unit:'双'},
             {p_sort:'服装',p_name:'阿迪T恤',p_price:'200',p_unit:'件'}
         ]
-    }
+    };
+
+    this.setToLocal = function (){
+        fromLocal.setData("allProduct",this.product());
+    };
+
     this.isExistItem = function (product, cart_data) {
-        var item;
+        var item = "";
         _.forEach(cart_data, function (cartdata) {
             if (product.p_name == cartdata.Product.p_name) {
                 item = cartdata;
@@ -29,7 +34,8 @@ app.service('productService', function (fromLocal) {
             }
         });
         return item;
-    }
+    };
+
     this.getTotalCount = function () {
         var items = fromLocal.getData("cartProduct");
         var totalCount = 0;
@@ -41,5 +47,20 @@ app.service('productService', function (fromLocal) {
             });
         }
         return totalCount;
-    }
+    };
+
+    this.addToCart = function (productItem) {
+        var cart_data = fromLocal.getData("cartProduct");
+        if (cart_data === null) {
+            cart_data = [];
+        }
+        var cart_item = this.isExistItem(productItem, cart_data);
+        if (cart_item) {
+            cart_item.count++;
+        } else {
+            cart_data.push(new cartItem(productItem, 1));
+        }
+        fromLocal.setData("cartProduct",cart_data);
+        fromLocal.setData("totalCount",this.getTotalCount());
+    };
 });
