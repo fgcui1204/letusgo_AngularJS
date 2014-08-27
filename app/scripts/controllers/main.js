@@ -8,7 +8,7 @@
  * Controller of the ngLetusgoApp
  */
 angular.module('ngLetusgoApp')
-  .controller('MainCtrl', function ($scope,$location) {
+  .controller('MainCtrl', function ($scope,$location,productService) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -26,5 +26,5 @@ angular.module('ngLetusgoApp')
     $scope.order=function(){
         $location.path('/order');
     }
-    $scope.totalCount=getTotalCount();
+    $scope.totalCount=productService.getTotalCount();
   });

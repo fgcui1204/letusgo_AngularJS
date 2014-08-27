@@ -10,4 +10,3 @@ function loadAllProduct() {
     ];
 }
 localStorage.setItem('allProduct',JSON.stringify(loadAllProduct()));
-localStorage.setItem('totalCount',JSON.stringify(getTotalCount()));
