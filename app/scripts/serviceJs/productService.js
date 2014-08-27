@@ -25,15 +25,12 @@ app.service('productService', function (fromLocal) {
     };
 
     this.isExistItem = function (product, cart_data) {
-        var item = "";
-        _.forEach(cart_data, function (cartdata) {
-            if (product.p_name == cartdata.Product.p_name) {
-                item = cartdata;
-            } else {
-                item = false;
-            }
-        });
-        return item;
+        var item =  _.filter(cart_data,{'p_name':product.p_name});
+        if(item!=""){
+           return item[0];
+        }else{
+           return false;
+        }
     };
 
     this.getTotalCount = function () {
@@ -58,7 +55,8 @@ app.service('productService', function (fromLocal) {
         if (cart_item) {
             cart_item.count++;
         } else {
-            cart_data.push(new cartItem(productItem, 1));
+            productItem.count = 1;
+            cart_data.push(productItem);
         }
         fromLocal.setData("cartProduct",cart_data);
         fromLocal.setData("totalCount",this.getTotalCount());
