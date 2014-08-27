@@ -5,7 +5,6 @@
 angular.module('ngLetusgoApp')
     .controller('CartCtrl', function ($scope,fromLocal,cartService,productService) {
         $scope.cartItems = fromLocal.getData("cartProduct");
-        console.log($scope.cartItems);
         $scope.$parent.totalCount = productService.getTotalCount();
         $scope.totalMoney = cartService.getTotalMoney();
         $scope.changeCount = function (item) {

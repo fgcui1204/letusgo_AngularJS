@@ -17,6 +17,7 @@ app.service('cartService', function (fromLocal,productService) {
     }
     this.changeCount = function (item){
         var cartItem = fromLocal.getData("cartProduct");
+        console.log(cartItem[0].$$hashKey+"#333333333333333");
         _.forEach(cartItem, function (cart_item) {
             if (cart_item.p_name == item.p_name) {
                 cart_item.count = item.count;

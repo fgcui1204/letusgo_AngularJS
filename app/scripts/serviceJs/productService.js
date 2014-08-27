@@ -23,16 +23,6 @@ app.service('productService', function (fromLocal) {
     this.setToLocal = function (){
         fromLocal.setData("allProduct",this.product());
     };
-
-    this.isExistItem = function (product, cart_data) {
-        var item =  _.filter(cart_data,{'p_name':product.p_name});
-        if(item!=""){
-           return item[0];
-        }else{
-           return false;
-        }
-    };
-
     this.getTotalCount = function () {
         var items = fromLocal.getData("cartProduct");
         var totalCount = 0;
@@ -51,9 +41,9 @@ app.service('productService', function (fromLocal) {
         if (cart_data === null) {
             cart_data = [];
         }
-        var cart_item = this.isExistItem(productItem, cart_data);
-        if (cart_item) {
-            cart_item.count++;
+        var cart_item =  _.filter(cart_data,{'p_name':productItem.p_name});
+        if (cart_item!="") {
+            cart_item[0].count++;
         } else {
             productItem.count = 1;
             cart_data.push(productItem);
