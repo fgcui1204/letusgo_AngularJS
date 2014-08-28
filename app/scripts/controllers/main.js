@@ -16,15 +16,15 @@ angular.module('ngLetusgoApp')
     ];
     $scope.productList=function(){
         $location.path('/productList');
-    }
+    };
     $scope.cart=function(){
         $location.path('/cart');
-    }
+    };
     $scope.homePage=function(){
         $location.path('/homePage');
-    }
+    };
     $scope.order=function(){
         $location.path('/order');
-    }
+    };
     $scope.totalCount=productService.getTotalCount();
   });
