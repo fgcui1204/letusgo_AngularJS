@@ -23,11 +23,11 @@
           <nav class="navbar navbar-default navbar-static-top" role="navigation">
               <div class="container">
                   <ul class="nav nav-pills" role="tablist">
-                      <li role="presentation" ng-mousedown="homePage()"><a><lable>Let us go!</lable></a></li>
-                      <li role="presentation" ng-mousedown="homePage()"><a>首页</a></li>
-                      <li role="presentation" ng-mousedown="productList()"><a>商品</a></li>
+                      <li role="presentation"><a href = "#/homePage"><lable>Let us go!</lable></a></li>
+                      <li role="presentation"><a href="#/homePage">首页</a></li>
+                      <li role="presentation"><a href = "#/productList">商品</a></li>
                       <div class="text-right">
-                          <a><li role="presentation" ng-mousedown="cart()"><span class="glyphicon glyphicon-shopping-cart"></span>购物车({{totalCount}})</li></a>
+                          <a href = "#/cart"><li role="presentation"><span class="glyphicon glyphicon-shopping-cart"></span>购物车({{totalCount}})</li></a>
                       </div>
                   </ul>
               </div>
