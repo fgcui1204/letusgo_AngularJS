@@ -14,6 +14,7 @@ angular.module('ngLetusgoApp').service('cartService', function (fromLocal, produ
         }
         return totalMoney;
     };
+    this.cart_Item_count_not_0 = [];
     this.changeCount = function (item) {
         var cartItem = fromLocal.getData("cartProduct");
         _.forEach(cartItem, function (cart_item) {
@@ -21,10 +22,10 @@ angular.module('ngLetusgoApp').service('cartService', function (fromLocal, produ
                 cart_item.count = item.count;
             }
         });
-        var cart_Item_count_not_0 = _.filter(cartItem, function (item) {
+        this.cart_Item_count_not_0 = _.filter(cartItem, function (item) {
             return item.count != 0;
         });
-        fromLocal.setData("cartProduct", cart_Item_count_not_0);
+        fromLocal.setData("cartProduct", this.cart_Item_count_not_0);
         fromLocal.setData("totalCount", productService.getTotalCount());
     }
 
