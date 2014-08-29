@@ -23,7 +23,7 @@ describe("productCtrl",function(){
     });
     it ('setToLocal should be execute', function () {
       var allProduct = [{p_sort:'水果',p_name:'苹果',p_price:'10',p_unit:'千克'},
-        {p_sort:'水果',p_name:'香蕉',p_price:'5',p_unit:'千克'}]
+        {p_sort:'水果',p_name:'香蕉',p_price:'5',p_unit:'千克'}];
         spyOn(productService,'setToLocal');
         spyOn(productService,'addToCart');
         spyOn(fromLocal,'getData').andReturn(allProduct);
