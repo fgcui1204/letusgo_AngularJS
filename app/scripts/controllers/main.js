@@ -8,6 +8,6 @@
  * Controller of the ngLetusgoApp
  */
 angular.module('ngLetusgoApp')
-  .controller('MainCtrl', function ($scope,$location,productService) {
-    $scope.totalCount=productService.getTotalCount();
+  .controller('MainCtrl', function ($scope, $location, productService) {
+    $scope.totalCount = productService.getTotalCount();
   });
