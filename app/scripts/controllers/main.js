@@ -9,5 +9,6 @@
  */
 angular.module('ngLetusgoApp')
   .controller('MainCtrl', function ($scope, $location, productService) {
+    productService.setToLocal();
     $scope.totalCount = productService.getTotalCount();
   });

@@ -1,6 +1,6 @@
 angular.module('ngLetusgoApp')
     .controller('ProCtrl', function ($scope,fromLocal,productService) {
-        productService.setToLocal();
+
 
         $scope.products = fromLocal.getData("allProduct");
 

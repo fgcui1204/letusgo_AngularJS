@@ -39,6 +39,14 @@ angular
             templateUrl: 'views/order.html',
             controller: 'OrderCtrl'
       })
+      .when('/productManager',{
+        templateUrl: 'views/adminViews/productManager.html',
+        controller: 'ProductManagerCtrl'
+      })
+      .when('/addProduct',{
+        templateUrl: 'views/adminViews/addProduct.html',
+        controller: 'ProductManagerCtrl'
+      })
       .otherwise({
         redirectTo: '/homePage'
       });
