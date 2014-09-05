@@ -2,7 +2,7 @@ angular.module('ngLetusgoApp')
     .controller('ProCtrl', function ($scope,fromLocal,productService) {
 
 
-        $scope.products = fromLocal.getData("allProduct");
+        $scope.products = productService.productWithSort();
 
         $scope.$parent.totalCount = productService.getTotalCount();
 

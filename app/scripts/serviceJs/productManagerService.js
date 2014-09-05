@@ -1,25 +1,41 @@
 /**
  * Created by fgcui on 14-9-3.
  */
-angular.module('ngLetusgoApp').service('productManagerService', function (fromLocal,$location) {
+angular.module('ngLetusgoApp').service('productManagerService', function (fromLocal, $location) {
 
-  this.delete = function(product){
+  this.delete = function (product) {
     var items = fromLocal.getData("allProduct");
-    var afterDeleteItems = _.filter(items,function(item){
+    var afterDeleteItems = _.filter(items, function (item) {
       return item.p_name != product.p_name;
     });
-    fromLocal.setData("allProduct",afterDeleteItems);
-  }
-  this.toAdd = function(){
-    $location.path('/addProduct');{}
-  }
-  this.getAllSort = function(){
-    console.log("333333333");
+    fromLocal.setData("allProduct", afterDeleteItems);
+  };
+
+  this.productWithSort = function () {
     var items = fromLocal.getData("allProduct");
-    var allSort = _.map(items,'p_sort');
-    console.log(allSort);
-    return allSort;
-  }
+    var sorts = fromLocal.getData("allSort");
+    _.forEach(items, function (item) {
+      _.forEach(sorts, function (sort) {
+        if (item.p_sort == sort.sid) {
+          item.p_sort = sort.sname;
+        }
+      });
+    });
+    return items;
+  };
+
+  this.toAdd = function () {
+    $location.path('/addProduct');
+  };
+
+  this.getAllSort = function () {
+    var allSort = fromLocal.getData("allSort");
+    var sorts = [];
+    _.forEach(allSort, function (sort) {
+      sorts.push(sort.sname);
+    });
+    return sorts;
+  };
 
 });
 

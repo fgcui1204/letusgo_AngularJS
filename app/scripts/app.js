@@ -45,7 +45,7 @@ angular
       })
       .when('/addProduct',{
         templateUrl: 'views/adminViews/addProduct.html',
-        controller: 'ProductManagerCtrl'
+        controller: 'addProductCtrl'
       })
       .otherwise({
         redirectTo: '/homePage'

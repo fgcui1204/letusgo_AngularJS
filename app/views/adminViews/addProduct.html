@@ -11,10 +11,8 @@
       <div class="form-group">
         <label  class="col-sm-2 control-label">商品类别</label>
         <div class="col-sm-10">
-          <select class="form-control">
-            <div  ng-repeat="sort in allSort">
-            <option>{{sort}}</option>
-            </div>
+          <select class="form-control" ng-model="sort" ng-options="sort for sort in allSorts">
+            <option value="">请选择...</option>
           </select>
         </div>
       </div>
