@@ -37,5 +37,13 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
     return sorts;
   };
 
+  this.productInfo = function(){
+    return {
+      p_sort:"",
+      p_name:"",
+      p_price:"",
+      p_unit:""
+    }
+  };
 });
 

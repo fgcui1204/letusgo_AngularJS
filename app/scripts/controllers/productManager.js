@@ -8,7 +8,7 @@ angular.module('ngLetusgoApp')
 
     $scope.delete = function(product){
       productManagerService.delete(product);
-      $scope.products = fromLocal.getData("allProduct");
+      $scope.products = productManagerService.productWithSort();
     }
 
     $scope.toAdd = function(){
