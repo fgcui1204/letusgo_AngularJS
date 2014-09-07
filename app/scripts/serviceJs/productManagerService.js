@@ -45,5 +45,11 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
       p_unit:""
     }
   };
+
+  this.toUpdate = function(product){
+    $location.path('/updateProduct');
+  }
+
+
 });
 
