@@ -2,7 +2,7 @@
  * Created by fgcui on 14-9-7.
  */
 angular.module('ngLetusgoApp')
-  .controller('sortManagerCtrl', function ($scope,fromLocal,sortManagerService) {
+  .controller('sortManagerCtrl', function ($scope,fromLocal,$location,sortManagerService) {
     $scope.sorts = sortManagerService.getAllSorts();
     $scope.addSort = function(){
       var sort = $scope.sort;
@@ -15,5 +15,5 @@ angular.module('ngLetusgoApp')
     $scope.delete = function(sort){
       sortManagerService.delete(sort);
       $scope.sorts = sortManagerService.getAllSorts();
-    }
+    };
   });
