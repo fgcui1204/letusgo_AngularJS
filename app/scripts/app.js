@@ -59,6 +59,10 @@ angular
         templateUrl: 'views/adminViews/addSort.html',
         controller: 'sortManagerCtrl'
       })
+      .when('/updateSort/:sid',{
+        templateUrl: 'views/adminViews/updateSort.html',
+        controller: 'updateSort'
+      })
       .otherwise({
         redirectTo: '/homePage'
       });
