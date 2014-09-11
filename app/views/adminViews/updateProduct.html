@@ -7,19 +7,19 @@
   </div>
 
   <div class="panel-body">
-    <form class="form-horizontal" role="form" ng-controller="ProductManagerCtrl">
+    <form class="form-horizontal" role="form" ng-controller="updateProduct">
       <div class="form-group">
         <label  class="col-sm-2 control-label">商品类别</label>
         <div class="col-sm-10">
           <select class="form-control" ng-model="productInfo.p_sort" ng-options="sort for sort in allSorts">
-            <option value=""></option>
+            <option value={{sort.sid}} ng-selected="productInfo.p_sort==sort.sname">{{sort.sname}}</option>
           </select>
         </div>
       </div>
       <div class="form-group">
         <label  class="col-sm-2 control-label">商品名称</label>
         <div class="col-sm-10">
-          <input type="text" ng-model="productInfo.p_name" value="productInfo.p_name" class="form-control" id="inputP_name" placeholder="商品名称">
+          <input type="text" ng-model="productInfo.p_name" class="form-control" id="inputP_name" placeholder="商品名称">
         </div>
       </div>
       <div class="form-group">
@@ -36,7 +36,7 @@
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" ng-click="" class="btn btn-default">修改</button>
+          <button type="submit" ng-click="doUpdate()" class="btn btn-default">修改</button>
         </div>
       </div>
     </form>
