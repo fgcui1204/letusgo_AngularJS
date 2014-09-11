@@ -1,12 +1,12 @@
 angular.module('ngLetusgoApp').service('productService', function (fromLocal) {
   this.product = function () {
     return [
-      {p_sort: '1', p_name: '苹果', p_price: '10', p_unit: '千克'},
-      {p_sort: '1', p_name: '香蕉', p_price: '5', p_unit: '千克'},
-      {p_sort: '2', p_name: '可乐', p_price: '5', p_unit: '瓶'},
-      {p_sort: '2', p_name: '雪碧', p_price: '3', p_unit: '瓶'},
-      {p_sort: '3', p_name: 'NIKE鞋', p_price: '300', p_unit: '双'},
-      {p_sort: '3', p_name: '阿迪T恤', p_price: '200', p_unit: '件'}
+      {p_sort: '水果', p_name: '苹果', p_price: '10', p_unit: '千克'},
+      {p_sort: '水果', p_name: '香蕉', p_price: '5', p_unit: '千克'},
+      {p_sort: '饮料', p_name: '可乐', p_price: '5', p_unit: '瓶'},
+      {p_sort: '饮料', p_name: '雪碧', p_price: '3', p_unit: '瓶'},
+      {p_sort: '服装', p_name: 'NIKE鞋', p_price: '300', p_unit: '双'},
+      {p_sort: '服装', p_name: '阿迪T恤', p_price: '200', p_unit: '件'}
     ]
   };
 
