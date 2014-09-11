@@ -3,10 +3,10 @@
  */
 angular.module('ngLetusgoApp').service('productManagerService', function (fromLocal, $location) {
 
-  this.delete = function (product) {
+  this.delete = function (p_name) {
     var items = fromLocal.getData("allProduct");
     var afterDeleteItems = _.filter(items, function (item) {
-      return item.p_name != product.p_name;
+      return item.p_name != p_name;
     });
     fromLocal.setData("allProduct", afterDeleteItems);
   };
@@ -16,7 +16,7 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
     var sorts = fromLocal.getData("allSort");
     _.forEach(items, function (item) {
       _.forEach(sorts, function (sort) {
-        if (item.p_sort == sort.sid) {
+        if (item.p_sort == sort.sname) {
           item.p_sort = sort.sname;
         }
       });
@@ -47,9 +47,12 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
   };
 
   this.toUpdate = function(product){
-    $location.path('/updateProduct');
-  }
-
+    $location.path('/updateProduct/'+product.p_name);
+  };
+  this.getProductByName = function(pname){
+    var items = this.productWithSort();
+    return _.filter(items, { 'p_name': pname });
+  };
 
 });
 
