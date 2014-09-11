@@ -47,9 +47,9 @@ angular
         templateUrl: 'views/adminViews/addProduct.html',
         controller: 'addProductCtrl'
       })
-      .when('/updateProduct',{
+      .when('/updateProduct/:name',{
         templateUrl: 'views/adminViews/updateProduct.html',
-        controller: 'ProductManagerCtrl'
+        controller: 'updateProduct'
       })
       .when('/sortManager',{
         templateUrl: 'views/adminViews/sortManager.html',
