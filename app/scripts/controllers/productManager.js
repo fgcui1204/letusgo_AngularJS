@@ -6,8 +6,8 @@ angular.module('ngLetusgoApp')
 
     $scope.products = productManagerService.productWithSort();
 
-    $scope.delete = function(product){
-      productManagerService.delete(product);
+    $scope.delete = function(p_name){
+      productManagerService.delete(p_name);
       $scope.products = productManagerService.productWithSort();
     };
 
@@ -17,8 +17,7 @@ angular.module('ngLetusgoApp')
 
     $scope.toUpdate = function(product){
       productManagerService.toUpdate(product);
-      $scope.productInfo = {p_sort:product.p_sort,p_name:product.p_name,p_price:product.p_price,p_unit:product.p_unit};
-      console.log($scope.productInfo);
+
     };
 
   });
