@@ -1,7 +1,11 @@
 <div class="panel panel-default">
   <div class="panel-heading">
       <div class="row text-center">
-        <div class="col-md-10"><label class="h2">商品管理</label></div>
+        <div class="col-md-4 form-inline"><label class="h2">Search:</label>
+          <input ng-model="query">
+
+        </div>
+        <div class="col-md-6"><label class="h2">商品管理</label></div>
         <div class="col-md-2"> <a class="btn btn-primary btn-lg" ng-click="toAdd()" role="button">添加商品</a></div>
       </div>
   </div>
@@ -18,7 +22,7 @@
         </div>
       </div>
 
-      <div class="panel-body" ng-repeat="product in products">
+      <div class="panel-body" ng-repeat="product in products|filter:query">
         <div class="row text-center">
           <div class="col-md-1" id="p_name">{{product.p_sort}}</div>
           <div class="col-md-3" id="p_name">{{product.p_name}}</div>
