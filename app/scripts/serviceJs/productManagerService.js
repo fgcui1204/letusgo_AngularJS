@@ -49,5 +49,12 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
     });
     fromLocal.setData("allProduct",allProducts);
   }
+  this.addProduct = function(product){
+    var allProducts = fromLocal.getData("allProduct");
+    var isTheRepeat = _.filter(allProducts,function(item){
+      return item.p_name = product.p_name;
+    });
+    return isTheRepeat;
+  }
 });
 
