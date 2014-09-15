@@ -51,10 +51,18 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
   }
   this.addProduct = function(product){
     var allProducts = fromLocal.getData("allProduct");
-    var isTheRepeat = _.filter(allProducts,function(item){
-      return item.p_name = product.p_name;
+    var isTheRepeat = [];
+    _.forEach(allProducts,function(item){
+      if(item.p_name === product.p_name){
+        isTheRepeat = item.p_name;
+      }
     });
-    return isTheRepeat;
+    if(isTheRepeat == ''){
+      allProducts.push(product);
+      fromLocal.setData("allProduct",allProducts);
+    }else{
+      alert(isTheRepeat+"已存在，不能重复添加");
+    }
   }
 });
 

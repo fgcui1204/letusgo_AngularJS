@@ -6,9 +6,8 @@ angular.module('ngLetusgoApp')
     $scope.productInfo = productManagerService.productInfo();
     $scope.addProduct = function(){
       var productInfo = $scope.productInfo;
-      var allProducts = fromLocal.getData("allProduct");
-      allProducts.push(productInfo);
-      fromLocal.setData("allProduct",allProducts);
+      productManagerService.addProduct(productInfo);
+
       $location.path('/productManager');
     }
   });
