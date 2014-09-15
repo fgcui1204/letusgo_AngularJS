@@ -10,6 +10,6 @@ angular.module('ngLetusgoApp')
             cartService.changeCount(item);
             $scope.totalMoney = cartService.getTotalMoney();
             $scope.$parent.totalCount = productService.getTotalCount();
-            $scope.cartItems = fromLocal.getData("cartProduct");
+            $scope.cartItems = fromLocal.getData('cartProduct');
         }
     });
