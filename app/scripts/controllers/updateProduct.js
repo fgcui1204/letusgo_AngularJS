@@ -1,6 +1,3 @@
-/**
- * Created by fgcui on 14-9-7.
- */
 angular.module('ngLetusgoApp')
   .controller('updateProduct', function ($scope,fromLocal,productManagerService,$routeParams,$location) {
     $scope.allSorts = productManagerService.getAllSort();

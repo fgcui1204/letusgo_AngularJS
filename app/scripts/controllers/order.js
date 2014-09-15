@@ -1,6 +1,3 @@
-/**
- * Created by fgcui on 14-8-25.
- */
 angular.module('ngLetusgoApp')
     .controller('OrderCtrl', function ($scope,fromLocal,cartService,productService,orderService) {
         $scope.orderItems = fromLocal.getData("cartProduct");

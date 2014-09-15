@@ -1,6 +1,3 @@
-/**
- * Created by fgcui on 14-9-7.
- */
 angular.module('ngLetusgoApp')
   .controller('sortManagerCtrl', function ($scope,fromLocal,$location,sortManagerService) {
     $scope.sorts = sortManagerService.getAllSorts();

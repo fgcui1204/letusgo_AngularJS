@@ -1,6 +1,3 @@
-/**
- * Created by fgcui on 14-8-27.
- */
 angular.module('ngLetusgoApp').service('cartService', function (fromLocal, productService) {
     this.getTotalMoney = function () {
         var cartItem = fromLocal.getData("cartProduct");

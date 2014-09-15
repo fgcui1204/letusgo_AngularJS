@@ -1,6 +1,3 @@
-/**
- * Created by fgcui on 14-9-3.
- */
 angular.module('ngLetusgoApp').service('productManagerService', function (fromLocal, $location) {
 
   this.delete = function (p_name) {
@@ -9,19 +6,6 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
       return item.p_name != p_name;
     });
     fromLocal.setData("allProduct", afterDeleteItems);
-  };
-
-  this.productWithSort = function () {
-    var items = fromLocal.getData("allProduct");
-    var sorts = fromLocal.getData("allSort");
-    _.forEach(items, function (item) {
-      _.forEach(sorts, function (sort) {
-        if (item.p_sort == sort.sname) {
-          item.p_sort = sort.sname;
-        }
-      });
-    });
-    return items;
   };
 
   this.toAdd = function () {
@@ -50,7 +34,7 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
     $location.path('/updateProduct/'+product.p_name);
   };
   this.getProductByName = function(pname){
-    var items = this.productWithSort();
+    var items = fromLocal.getData("allProduct");
     return _.filter(items, { 'p_name': pname });
   };
 

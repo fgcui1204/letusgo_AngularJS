@@ -1,6 +1,3 @@
-/**
- * Created by fgcui on 14-9-7.
- */
 angular.module('ngLetusgoApp').service('sortManagerService', function (fromLocal,$location) {
   this.getAllSorts = function (){
     return fromLocal.getData("allSort");
