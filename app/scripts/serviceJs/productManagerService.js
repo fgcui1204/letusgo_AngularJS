@@ -60,7 +60,7 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
     });
     if (isTheRepeat == '') {
       items.push(product);
-      fromLocal.setData('allProduct', allProducts);
+      fromLocal.setData('allProduct', items);
     } else {
       alert(isTheRepeat + '已存在，不能重复添加');
     }
