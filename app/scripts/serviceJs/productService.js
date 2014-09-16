@@ -40,12 +40,12 @@ angular.module('ngLetusgoApp').service('productService', function (fromLocal) {
     return totalCount;
   };
 
-  this.productWithSort = function (){
+  this.productWithSort = function () {
     var items = fromLocal.getData('allProduct');
     var sorts = fromLocal.getData('allSort');
-    _.forEach(items,function(item){
-      _.forEach(sorts,function(sort){
-        if(item.p_sort == sort.sid){
+    _.forEach(items, function (item) {
+      _.forEach(sorts, function (sort) {
+        if (item.p_sort == sort.sid) {
           item.p_sort = sort.sname;
         }
       });
