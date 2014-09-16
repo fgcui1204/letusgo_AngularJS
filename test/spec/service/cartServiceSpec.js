@@ -35,8 +35,8 @@ describe("CartService", function () {
     spyOn(fromLocal,'setData');
     cartService.changeCount(item);
     expect(fromLocal.setData.calls.length).toBe(2);
-    expect(fromLocal.getData.calls.length).toBe(2);
-    expect(cartItem[0].count).toEqual(4);
+    expect(fromLocal.getData.calls.length).toBe(1);
+    expect(cartItem[0].count).toEqual(3);
   });
 
   it('when the count is 0,cartProduct should delete this product',function(){

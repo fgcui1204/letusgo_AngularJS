@@ -31,6 +31,5 @@ describe("productCtrl",function(){
         $scope.addToCart(allProduct[0]);
         expect($scope.products.length).toBe(2);
         expect(productService.addToCart.calls.length).toBe(1);
-        expect(productService.setToLocal.calls.length).toBe(1);
     });
 });
