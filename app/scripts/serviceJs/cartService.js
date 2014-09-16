@@ -1,6 +1,7 @@
 angular.module('ngLetusgoApp').service('cartService', function (fromLocal, productService) {
+  var cartItem = fromLocal.getData('cartProduct');
     this.getTotalMoney = function () {
-        var cartItem = fromLocal.getData('cartProduct');
+
         var totalMoney = 0;
         if (cartItem == null) {
             totalMoney = 0;
@@ -13,7 +14,6 @@ angular.module('ngLetusgoApp').service('cartService', function (fromLocal, produ
     };
     this.cart_Item_count_not_0 = [];
     this.changeCount = function (item) {
-        var cartItem = fromLocal.getData('cartProduct');
         _.forEach(cartItem, function (cart_item) {
             if (cart_item.p_name == item.p_name) {
                 cart_item.count = item.count;
