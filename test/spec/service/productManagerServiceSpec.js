@@ -2,7 +2,7 @@
  * Created by fgcui on 14-9-11.
  */
 describe("productManagerServiceSpec", function () {
-  var fromLocal, productManagerService;
+  var fromLocal, productManagerService,products;
   beforeEach(function () {
     module('ngLetusgoApp');
 
@@ -55,5 +55,12 @@ describe("productManagerServiceSpec", function () {
     productManagerService.addProduct(product);
     expect(fromLocal.getData.calls.length).toBe(1);
     expect(products.length).toBe(2);
+  });
+  it('add product', function () {
+    spyOn(fromLocal, 'getData').andReturn(products);
+    var product = {p_sort: '水果', p_name: '梨', p_price: '20', p_unit: '千克'};
+    productManagerService.addProduct(product);
+    expect(fromLocal.getData.calls.length).toBe(1);
+    expect(products.length).toBe(3);
   });
 });
