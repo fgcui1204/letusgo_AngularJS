@@ -24,9 +24,21 @@ describe("ProductManagerCtrl",function() {
       {p_sort:'水果',p_name:'香蕉',p_price:'5',p_unit:'千克'}
     ];
   });
+
   it ('it should load all product', function () {
     spyOn(fromLocal,'getData').andReturn(allProduct);
     createController();
     expect($scope.products).toEqual(allProduct);
   });
+
+  it ('it should delete the product', function () {
+    spyOn(productManagerService,'delete').andReturn(allProduct);
+    spyOn(fromLocal,'getData').andReturn(allProduct);
+    createController();
+    var pname = '苹果';
+    $scope.delete(pname);
+    expect(productManagerService.delete).toHaveBeenCalledWith(pname);
+    
+  });
+
 });
