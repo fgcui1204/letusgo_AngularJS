@@ -1,10 +1,11 @@
 angular.module('ngLetusgoApp').service('productManagerService', function (fromLocal, $location) {
-  this.delete = function (p_name) {
+  this.delete = function (pName) {
     var items = fromLocal.getData('allProduct');
     var afterDeleteItems = _.filter(items, function (item) {
-      return item.p_name != p_name;
+      return item.p_name != pName;
     });
-    fromLocal.setData('allProduct', afterDeleteItems);
+    console.log(afterDeleteItems);
+    return afterDeleteItems;
   };
 
   this.toAdd = function () {
