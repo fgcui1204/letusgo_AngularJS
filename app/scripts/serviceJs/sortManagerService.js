@@ -16,6 +16,7 @@ angular.module('ngLetusgoApp').service('sortManagerService', function (fromLocal
 
   this.toUpdate = function (sort) {
     $location.path('/updateSort/' + sort.sid);
+    return sort.sid;
   };
 
   this.getSortById = function (id) {

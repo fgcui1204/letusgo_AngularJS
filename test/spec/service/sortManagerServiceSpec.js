@@ -37,4 +37,10 @@ describe("sortManagerServiceSpec", function () {
     expect(fromLocal.getData.calls.length).toBe(1);
   });
 
+  it('when to update,it should bring sid', function () {
+    var sort = {sid:'1',sname:'水果'};
+    var sid = sortManagerService.toUpdate(sort);
+    expect(sid).toBe('1');
+  });
+
 });
