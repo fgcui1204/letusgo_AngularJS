@@ -43,4 +43,11 @@ describe("sortManagerServiceSpec", function () {
     expect(sid).toBe('1');
   });
 
+  it('test get sort by id', function () {
+    spyOn(fromLocal, 'getData').andReturn(sorts);
+    var sort = sortManagerService.getSortById('1');
+    expect(fromLocal.getData.calls.length).toBe(1);
+    expect(sort[0].sname).toBe('水果');
+  });
+  
 });
