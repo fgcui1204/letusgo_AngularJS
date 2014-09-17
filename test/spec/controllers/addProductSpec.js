@@ -57,4 +57,10 @@ describe("addProductCtrl", function () {
     expect(productManagerService.addProduct).toHaveBeenCalledWith(productInfo);
     expect($scope.productInfo).toEqual(productInfo);
   });
+
+  it('should come into productManager after add product', function () {
+    createController();
+    $scope.addProduct();
+    expect($location.path() === '/productManager').toBe(true);
+  });
 });
