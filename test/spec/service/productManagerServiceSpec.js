@@ -10,11 +10,14 @@ describe("productManagerServiceSpec", function () {
       productManagerService = $injector.get("productManagerService");
       fromLocal = $injector.get('fromLocal');
     });
+    products = [
+      {p_sort: '水果', p_name: '苹果', p_price: '10', p_unit: '千克'},
+      {p_sort: '水果', p_name: '香蕉', p_price: '10', p_unit: '千克'}
+    ];
 
   });
 
   it('the getData should be called one and delete product', function () {
-    var products = [{p_sort: '水果', p_name: '苹果', p_price: '10', p_unit: '千克'},{p_sort: '水果', p_name: '香蕉', p_price: '10', p_unit: '千克'}];
     var pname = "苹果";
     spyOn(fromLocal, 'getData').andReturn(products);
     productManagerService.delete(pname);
@@ -30,7 +33,6 @@ describe("productManagerServiceSpec", function () {
     expect(allsort[0].sname).toEqual("水果");
   });
   it('get product by name', function () {
-    var products = [{p_sort: '水果', p_name: '苹果', p_price: '10', p_unit: '千克'},{p_sort: '水果', p_name: '香蕉', p_price: '10', p_unit: '千克'}];
     spyOn(fromLocal, 'getData').andReturn(products);
     var item =  productManagerService.getProductByName("苹果");
     expect(fromLocal.getData.calls.length).toBe(1);
@@ -38,10 +40,6 @@ describe("productManagerServiceSpec", function () {
     expect(item[0].p_sort).toEqual("水果");
   });
   it('update the product', function () {
-    var products = [
-      {p_sort: '水果', p_name: '苹果', p_price: '10', p_unit: '千克'},
-      {p_sort: '水果', p_name: '香蕉', p_price: '10', p_unit: '千克'}
-    ];
     spyOn(fromLocal, 'getData').andReturn(products);
     var product = [{p_sort: '水果', p_name: '苹果', p_price: '20', p_unit: '千克'}];
     productManagerService.doUpdate(product[0]);
@@ -50,17 +48,12 @@ describe("productManagerServiceSpec", function () {
     expect(products[0].p_price).toEqual('20');
     expect(products[1].p_price).toEqual('10');
   });
-  it('add product', function () {
-    var products = [
-      {p_sort: '水果', p_name: '苹果', p_price: '10', p_unit: '千克'},
-      {p_sort: '水果', p_name: '香蕉', p_price: '10', p_unit: '千克'}
-    ];
+
+  it('add repeat product', function () {
     spyOn(fromLocal, 'getData').andReturn(products);
-    var product = [{p_sort: '水果', p_name: '苹果', p_price: '20', p_unit: '千克'}];
-    productManagerService.doUpdate(product[0]);
-    spyOn(fromLocal, 'setData');
+    var product = {p_sort: '水果', p_name: '苹果', p_price: '20', p_unit: '千克'};
+    productManagerService.addProduct(product);
     expect(fromLocal.getData.calls.length).toBe(1);
-    expect(products[0].p_price).toEqual('20');
-    expect(products[1].p_price).toEqual('10');
+    expect(products.length).toBe(2);
   });
 });
