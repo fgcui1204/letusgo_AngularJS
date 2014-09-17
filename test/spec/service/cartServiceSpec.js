@@ -47,7 +47,7 @@ describe("CartService", function () {
     spyOn(fromLocal,'getData').andReturn(cartItem);
     spyOn(fromLocal,'setData');
     cartService.changeCount(item);
-    expect(cartService.cart_Item_count_not_0.length).toEqual(1);
+    expect(cartService.cartItemCountNotZero.length).toEqual(1);
     expect(fromLocal.setData.calls.length).toBe(2);
     expect(fromLocal.getData.calls.length).toBe(2);
   });
