@@ -1,6 +1,3 @@
-/**
- * Created by fgcui on 14-9-11.
- */
 describe("productManagerServiceSpec", function () {
   var fromLocal, productManagerService,products;
   beforeEach(function () {
