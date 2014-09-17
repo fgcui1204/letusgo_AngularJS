@@ -34,4 +34,11 @@ describe("updateProduct",function() {
     createController();
     expect($scope.allSorts).toEqual(allSort);
   });
+
+  it ('it should get product by name', function () {
+    spyOn(productManagerService,'getAllSort').andReturn(allSort);
+    $routeParams.name = '苹果';
+    createController();
+    expect($scope.productInfo).toEqual({p_sort: '水果', p_name: '苹果', p_price: '10', p_unit: '千克'});
+  });
 });
