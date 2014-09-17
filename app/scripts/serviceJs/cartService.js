@@ -1,5 +1,5 @@
 angular.module('ngLetusgoApp').service('cartService', function (fromLocal, productService) {
-  this.cart_Item_count_not_0 = [];
+  this.cartItemCountNotZero = [];
 
   this.getTotalMoney = function () {
     var cartItem = fromLocal.getData('cartProduct');
@@ -14,18 +14,18 @@ angular.module('ngLetusgoApp').service('cartService', function (fromLocal, produ
 
   this.changeCount = function (item) {
     var cartItem = fromLocal.getData('cartProduct');
-    this.cart_Item_count_not_0 = [];
-    _.forEach(cartItem, function (cart_item) {
-      if (cart_item.p_name == item.p_name) {
-        cart_item.count = item.count;
+    this.cartItemCountNotZero = [];
+    _.forEach(cartItem, function (items) {
+      if (items.p_name == item.p_name) {
+        items.count = item.count;
       }
     });
 
-    this.cart_Item_count_not_0 = _.filter(cartItem, function (item) {
+    this.cartItemCountNotZero = _.filter(cartItem, function (item) {
       return item.count != 0;
     });
 
-    fromLocal.setData('cartProduct', this.cart_Item_count_not_0);
+    fromLocal.setData('cartProduct', this.cartItemCountNotZero);
     fromLocal.setData('totalCount', productService.getTotalCount());
   };
 
