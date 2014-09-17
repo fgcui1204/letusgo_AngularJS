@@ -49,5 +49,22 @@ describe("sortManagerServiceSpec", function () {
     expect(fromLocal.getData.calls.length).toBe(1);
     expect(sort[0].sname).toBe('水果');
   });
-  
+
+  it('test the update', function () {
+    spyOn(fromLocal, 'getData').andReturn(sorts);
+    var sort = {sid:'1',sname:'服装'};
+    var afterUpdateSort = sortManagerService.doUpdate(sort);
+    expect(fromLocal.getData.calls.length).toBe(1);
+    expect(afterUpdateSort[0].sname).toBe('服装');
+  });
+
+  it('test the update failure', function () {
+    spyOn(fromLocal, 'getData').andReturn(sorts);
+    var sort = {sid:'3',sname:'服装'};
+    var afterUpdateSort = sortManagerService.doUpdate(sort);
+    expect(fromLocal.getData.calls.length).toBe(1);
+    expect(afterUpdateSort[0].sname).toBe('水果');
+  });
+
+
 });
