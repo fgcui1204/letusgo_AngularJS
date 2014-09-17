@@ -41,7 +41,7 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
   this.doUpdate = function (product) {
     var allProducts = fromLocal.getData('allProduct');
     _.forEach(allProducts, function (products) {
-      if (products.p_name == product.p_name) {
+      if (products.p_name === product.p_name) {
         products.p_sort = product.p_sort;
         products.p_price = product.p_price;
         products.p_unit = product.p_unit;
