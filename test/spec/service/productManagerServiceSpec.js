@@ -1,3 +1,5 @@
+'use strict';
+
 describe("productManagerServiceSpec", function () {
   var fromLocal, productManagerService,products;
   beforeEach(function () {

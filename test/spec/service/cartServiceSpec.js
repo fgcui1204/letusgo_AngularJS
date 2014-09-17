@@ -1,6 +1,5 @@
-/**
- * Created by fgcui on 14-8-28.
- */
+'use strict';
+
 describe("CartService", function () {
   var cartService,fromLocal, productService,cartItem;
   beforeEach(function () {

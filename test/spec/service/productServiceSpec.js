@@ -1,3 +1,5 @@
+'use strict';
+
 describe("productService", function () {
   var fromLocal, productService;
   beforeEach(function () {

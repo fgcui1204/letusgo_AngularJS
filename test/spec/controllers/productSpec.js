@@ -1,6 +1,5 @@
-/**
-* Created by fgcui on 14-8-28.
-*/
+'use strict';
+
 describe("productCtrl",function(){
     var $scope,fromLocal,productService,createController;
     beforeEach(function () {

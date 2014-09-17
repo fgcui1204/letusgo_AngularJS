@@ -1,6 +1,5 @@
-/**
- * Created by fgcui on 14-8-29.
- */
+'use strict';
+
 describe("CartService", function () {
   var $location,orderService, fromLocal;
   beforeEach(function () {

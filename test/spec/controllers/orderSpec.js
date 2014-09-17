@@ -1,6 +1,5 @@
-/**
- * Created by fgcui on 14-8-29.
- */
+'use strict';
+
 describe("cartCtrl",function() {
   var $scope, fromLocal, productService, createController, cartService, cartProduct,orderService;
   beforeEach(function () {

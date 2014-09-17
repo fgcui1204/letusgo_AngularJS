@@ -1,3 +1,5 @@
+'use strict';
+
 describe("sortManagerServiceSpec", function () {
   var fromLocal, sortManagerService, sorts;
   beforeEach(function () {
