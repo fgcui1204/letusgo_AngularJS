@@ -54,5 +54,12 @@ describe("sortManagerCtrl",function() {
     $scope.delete(sort);
     expect(sortManagerService.delete).toHaveBeenCalledWith(sort);
   });
+
+  it('should come into update when click the update button', function () {
+    var sort = {sid:'1',sname:'水果'};
+    createController();
+    $scope.toUpdate(sort);
+    expect($location.path() === '/updateSort/1').toBe(true);
+  });
 });
 
