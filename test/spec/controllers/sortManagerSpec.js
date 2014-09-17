@@ -31,4 +31,19 @@ describe("sortManagerCtrl",function() {
     createController();
     expect($scope.sorts).toEqual(allSort);
   });
+
+  it ('it should add sort', function () {
+    $scope.sort = {sid:'3',sname:'服装'};
+    spyOn(fromLocal,'getData').andReturn(allSort);
+    createController();
+    $scope.addSort();
+    expect(allSort.length).toEqual(3);
+  });
+
+  it('should come into sortManager after add sort', function () {
+    createController();
+    $scope.addSort();
+    expect($location.path() === '/sortManager').toBe(true);
+  });
 });
+
