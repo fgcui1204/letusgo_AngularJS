@@ -21,7 +21,6 @@ angular.module('ngLetusgoApp').service('sortManagerService', function (fromLocal
 
   this.getSortById = function (id) {
     var allSorts = fromLocal.getData('allSort');
-    console.log(_.filter(allSorts, {'sid': id })+"-----------");
     return _.filter(allSorts, {'sid': id });
   };
 
