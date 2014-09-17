@@ -47,4 +47,11 @@ describe("ProductManagerCtrl",function() {
     $scope.toAdd();
     expect($location.path() === '/addProduct').toBe(true);
   });
+
+  it('should come into update when click the update button', function () {
+    var product = {p_sort:'水果',p_name:'香蕉',p_price:'5',p_unit:'千克'};
+    createController();
+    $scope.toUpdate(product);
+    expect($location.path() === '/updateProduct/香蕉').toBe(true);
+  });
 });
