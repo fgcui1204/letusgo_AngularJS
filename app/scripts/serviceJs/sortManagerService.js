@@ -5,11 +5,12 @@ angular.module('ngLetusgoApp').service('sortManagerService', function (fromLocal
   };
 
   this.delete = function (sort) {
-
+    var allSorts = fromLocal.getData('allSort');
     var afterDeleteSorts = _.filter(allSorts, function (sorts) {
       return sorts.sname != sort.sname;
     });
     fromLocal.setData('allSort', afterDeleteSorts);
+    return afterDeleteSorts;
 
   };
 
@@ -31,6 +32,7 @@ angular.module('ngLetusgoApp').service('sortManagerService', function (fromLocal
       }
     });
     fromLocal.setData('allSort', allSorts);
+    return allSorts;
   }
 
 });
