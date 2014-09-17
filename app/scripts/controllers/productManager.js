@@ -1,11 +1,11 @@
 angular.module('ngLetusgoApp')
   .controller('ProductManagerCtrl', function ($scope,fromLocal,productManagerService) {
+    $scope.products = fromLocal.getData("allProduct");
 
-    $scope.products = fromLocal.getData("allProduct");;
-
-    $scope.delete = function(p_name){
-      productManagerService.delete(p_name);
-      $scope.products = fromLocal.getData("allProduct");;
+    $scope.delete = function(pName){
+      var afterDeleteItems = productManagerService.delete(pName);
+      fromLocal.setData('allProduct', afterDeleteItems);
+      $scope.products = fromLocal.getData("allProduct");
     };
 
     $scope.toAdd = function(){
