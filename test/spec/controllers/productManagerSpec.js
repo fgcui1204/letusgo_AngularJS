@@ -1,19 +1,21 @@
 'use strict';
 
 describe("ProductManagerCtrl",function() {
-  var $scope, fromLocal, productManagerService, createController,allProduct;
+  var $scope, fromLocal, productManagerService,$location, createController,allProduct;
   beforeEach(function () {
     module('ngLetusgoApp');
     inject(function ($injector) {
       $scope = $injector.get('$rootScope').$new();
       fromLocal = $injector.get('fromLocal');
       productManagerService = $injector.get('productManagerService');
+      $location = $injector.get('$location')
       var $controller = $injector.get('$controller');
 
       createController = function () {
         return $controller('ProductManagerCtrl', {
           $scope: $scope,
           fromLocal: fromLocal,
+          $location:$location,
           productManagerService: productManagerService
         });
       };
@@ -38,7 +40,11 @@ describe("ProductManagerCtrl",function() {
     var pname = '苹果';
     $scope.delete(pname);
     expect(productManagerService.delete).toHaveBeenCalledWith(pname);
-    
   });
 
+  it('should come into addProduct when click the add product', function () {
+    createController();
+    $scope.toAdd();
+    expect($location.path() === '/addProduct').toBe(true);
+  });
 });
