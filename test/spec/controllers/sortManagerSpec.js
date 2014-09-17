@@ -45,5 +45,14 @@ describe("sortManagerCtrl",function() {
     $scope.addSort();
     expect($location.path() === '/sortManager').toBe(true);
   });
+
+  it ('it should delete the sort', function () {
+    spyOn(sortManagerService,'delete').andReturn(allSort);
+    spyOn(fromLocal,'getData').andReturn(allSort);
+    createController();
+    var sort = {sid:'1',sname:'水果'};
+    $scope.delete(sort);
+    expect(sortManagerService.delete).toHaveBeenCalledWith(sort);
+  });
 });
 
