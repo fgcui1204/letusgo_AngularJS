@@ -32,4 +32,15 @@ describe("addProductCtrl", function () {
     createController();
     expect($scope.allSorts).toEqual(allSort);
   });
+
+  it ('productInfo should be a object', function () {
+    var productInfo = {
+      p_sort: '',
+      p_name: '',
+      p_price: '',
+      p_unit: ''};
+    spyOn(productManagerService,'productInfo').andReturn(productInfo);
+    createController();
+    expect($scope.productInfo).toEqual(productInfo);
+  });
 });
