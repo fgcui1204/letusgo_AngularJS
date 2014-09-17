@@ -43,4 +43,18 @@ describe("addProductCtrl", function () {
     createController();
     expect($scope.productInfo).toEqual(productInfo);
   });
+
+  it ('it should add product', function () {
+    var productInfo = {
+      p_sort: '水果',
+      p_name: '梨',
+      p_price: '5',
+      p_unit: '千克'};
+    spyOn(productManagerService,'productInfo').andReturn(productInfo);
+    spyOn(productManagerService,'addProduct');
+    createController();
+    $scope.addProduct();
+    expect(productManagerService.addProduct).toHaveBeenCalledWith(productInfo);
+    expect($scope.productInfo).toEqual(productInfo);
+  });
 });
