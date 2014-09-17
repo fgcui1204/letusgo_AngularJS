@@ -4,7 +4,6 @@ angular.module('ngLetusgoApp').service('productManagerService', function (fromLo
     var afterDeleteItems = _.filter(items, function (item) {
       return item.p_name != pName;
     });
-    console.log(afterDeleteItems);
     return afterDeleteItems;
   };
 
